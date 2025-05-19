@@ -1,0 +1,654 @@
+/* Variables CSS para colores y tipografía */
+:root {
+    --primary-color: #FF6F61; /* Un naranja/coral alegre */
+    --secondary-color: #6B5B95; /* Un púrpura suave */
+    --accent-color: #88B04B; /* Un verde hoja */
+    --background-color: #F7F7F7; /* Fondo gris muy claro */
+    --text-color: #333; /* Gris oscuro para texto */
+    --light-text-color: #666; /* Gris medio */
+    --card-background: #FFFFFF; /* Blanco para tarjetas */
+    --header-bg: #FFFFFF; /* Fondo del header */
+    --footer-bg: #333; /* Fondo del footer */
+    --footer-text: #FFFFFF; /* Color de texto del footer */
+    --accordion-header-bg: #e0e0e0; /* Fondo gris claro para encabezados de acordeón */
+    --accordion-header-hover-bg: #d5d5d5; /* Gris ligeramente más oscuro para hover */
+    --accordion-border: #ccc; /* Borde para acordeones */
+
+
+    --font-family-base: ‘Nunito’, sans-serif;
+}
+
+/* Estilos Generales */
+* {
+    box-sizing: border-box; /* Facilita el layout con padding y border */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding-top: 80px; /* Espacio para el header fijo */
+    word-wrap: break-word; /* Previene desbordamientos de palabras largas */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 0 15px; /* Espacio a los lados en móviles */
+}
+
+/* Header */
+header {
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    padding: 10px 0;
+    position: fixed; /* Header fijo en la parte superior */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+header .container {
+    display: flex; /* Usa flexbox para alinear título y navegación */
+    justify-content: space-between; /* Espacio entre elementos */
+    align-items: center; /* Centra verticalmente */
+    flex-wrap: wrap; /* Permite que el header se envuelva en pantallas pequeñas */
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: var(--primary-color); /* Color del título */
+}
+
+header nav ul {
+    list-style: none; /* Quita los puntos de la lista */
+    display: flex; /* Alinea los elementos del menú en fila */
+    flex-wrap: wrap; /* Permite que los elementos del menú se envuelvan */
+    justify-content: center; /* Centra los elementos si se envuelven */
+}
+
+header nav ul li {
+    margin-left: 20px; /* Espacio entre elementos del menú */
+    margin-top: 5px; /* Espacio vertical si se envuelven */
+    margin-bottom: 5px;
+}
+
+header nav ul li:first-child {
+    margin-left: 0; /* Quita el margen izquierdo al primer elemento */
+}
+
+header nav ul li a {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 5px 0; /* Espacio alrededor del texto del enlace */
+    transition: color 0.3s ease; /* Transición suave al pasar el ratón */
+    display: block; /* Asegura que el padding funcione bien */
+}
+
+header nav ul li a:hover,
+header nav ul li a.active { /* Estilo para el enlace activo o al pasar el ratón */
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color); /* Indicador de página activa/hover */
+}
+
+/* Hero Section (Página Principal) */
+.hero {
+    background: linear-gradient(to right, var(--background-color), #E0E0E0); /* Degradado suave */
+    padding: 60px 0;
+}
+
+.hero .container {
+     display: flex;
+     align-items: center;
+     gap: 40px; /* Espacio entre el texto y la imagen */
+     text-align: left; /* Alineación del texto */
+}
+
+.hero-content {
+    flex: 1; /* Permite que el contenido de texto ocupe el espacio disponible */
+}
+
+.hero-content h2 {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: var(--light-text-color);
+}
+
+.hero-image {
+    flex: 1; /* Permite que la imagen ocupe el espacio disponible */
+    text-align: center; /* Centra la imagen si es más pequeña */
+}
+
+.hero-image img {
+    max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.image-caption {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+}
+
+
+.btn {
+    display: inline-block; /* Permite aplicar padding y margin */
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FF5733; /* Un naranja más oscuro al pasar el ratón */
+}
+
+
+/* Secciones de Tarjetas (Página Principal) */
+.secciones-cards {
+    padding: 40px 0;
+    background-color: var(--card-background); /* Fondo blanco para destacar */
+}
+
+.secciones-cards h3 {
+    text-align: center;
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+.card-grid {
+    display: grid; /* Usa grid para el layout de tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas flexibles, mínimo 250px */
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.card {
+    background-color: var(--background-color); /* Fondo ligeramente diferente para la tarjeta */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: var(--text-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación al pasar el ratón */
+    display: block; /* Hace que toda la tarjeta sea clicable */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Levanta la tarjeta ligeramente */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 60px; /* Tamaño de los iconos en las tarjetas */
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.card h4 {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.95em;
+    color: var(--light-text-color);
+}
+
+
+/* Estilos para Páginas de Contenido */
+.content-section {
+    padding: 40px 0;
+}
+
+.content-section article {
+    background-color: var(--card-background); /* Fondo blanco para el contenido principal */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+
+.content-section h2 {
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color); /* Línea decorativa */
+    padding-bottom: 10px;
+}
+
+.content-section h3 {
+     font-size: 1.5em;
+     color: var(--primary-color);
+     margin-top: 30px;
+     margin-bottom: 15px;
+}
+
+.content-section h4 {
+     font-size: 1.3em;
+     color: var(--secondary-color);
+     margin-top: 25px;
+     margin-bottom: 10px;
+}
+
+
+.content-section p {
+     margin-bottom: 15px;
+     font-size: 1.1em;
+     color: var(--text-color);
+     word-wrap: break-word; /* Asegura que el texto se ajuste */
+}
+
+.content-section ul,
+.content-section ol {
+    margin-bottom: 15px;
+    margin-left: 40px; /* Mayor indentación para listas */
+    padding-left: 0; /* Reiniciar padding por si acaso */
+}
+
+.content-section ul li,
+.content-section ol li {
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.content-section ul li::marker { /* Estilo para los puntos de la lista */
+     color: var(--accent-color);
+}
+
+.content-section ol li::marker { /* Estilo para los números de la lista */
+     color: var(--accent-color);
+     font-weight: bold;
+}
+
+/* Estilos para imágenes dentro del contenido */
+.image-container {
+     text-align: center;
+     margin: 30px 0;
+     /* Fondo ligero para destacar */
+     background-color: #FAFAFA;
+     padding: 15px;
+     border-radius: 8px;
+     border: 1px solid #eee;
+}
+
+.image-container img {
+     max-width: 90%; /* Controla el tamaño de las imágenes en el contenido */
+     height: auto;
+     border-radius: 8px;
+     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+     display: block; /* Asegura que la imagen se centre bien */
+     margin: 0 auto 10px auto; /* Centra la imagen y añade espacio debajo */
+}
+
+.content-section .icon {
+    width: 40px; /* Tamaño de los iconos pequeños dentro del texto/listas */
+    height: 40px;
+    vertical-align: middle; /* Alinea el icono verticalmente con el texto */
+    margin-right: 8px; /* Espacio a la derecha del icono */
+    display: inline-block; /* Permite aplicar margin/padding e interactuar con el texto */
+}
+
+
+/* Estilo para el reproductor de audio */
+.audio-example {
+    background-color: #e9f7ef; /* Fondo verde claro */
+    border: 1px solid var(--accent-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center; /* Centra el reproductor y texto */
+}
+
+.audio-example p {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.audio-example audio {
+    width: 100%; /* Ancho completo dentro de su contenedor */
+    max-width: 400px; /* Limita el ancho máximo del reproductor */
+}
+
+
+/* Estilo para el enlace a la siguiente sección */
+.next-section-link {
+    padding: 30px 0;
+    text-align: center;
+    background-color: #EFEFEF; /* Fondo gris claro */
+    margin-top: 30px; /* Espacio arriba */
+}
+
+.next-section-link p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* --- ESTILOS PARA ACORDEONES --- */
+.accordion-container {
+    margin-top: 30px;
+    border: 1px solid var(--accordion-border);
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que los bordes redondeados se vean bien */
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--accordion-border);
+}
+
+.accordion-item:last-child {
+    border-bottom: none; /* No hay borde en el último item */
+}
+
+.accordion-header {
+    background-color: var(--accordion-header-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 15px 20px;
+    display: flex; /* Permite alinear el título y el icono */
+    justify-content: space-between; /* Espacio entre título e icono */
+    align-items: center; /* Centra verticalmente */
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: var(--accordion-header-hover-bg);
+}
+
+.accordion-header h4 {
+    margin: 0; /* Elimina margen predeterminado de h4 */
+    color: var(--text-color); /* Asegura que el color de h4 sea el del acordeón */
+    font-size: 1.3em; /* Ajusta tamaño si es necesario */
+}
+
+.accordion-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0; /* Evita que el icono se encoja */
+    margin-left: 10px; /* Espacio entre título e icono */
+    position: relative;
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+    content: ‘’;
+    position: absolute;
+    background-color: var(--text-color); /* Color de la cruz/línea */
+    transition: transform 0.3s ease;
+}
+
+.accordion-icon::before {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.accordion-icon::after {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.accordion-header.active .accordion-icon::after {
+    transform: translateX(-50%) rotate(90deg); /* Gira la línea vertical para formar un “menos” */
+     opacity: 0; /* Oculta la línea vertical cuando está activo (solo muestra la horizontal) */
+}
+
+.accordion-header.active .accordion-icon::before {
+     transform: translateY(-50%) rotate(180deg); /* Rotación sutil para el efecto */
+}
+
+
+.accordion-content {
+    background-color: var(--card-background); /* Fondo blanco para el contenido */
+    max-height: 0; /* Inicialmente colapsado */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Animación suave */
+    padding: 0 20px; /* Padding horizontal, el vertical se controla con JS */
+}
+
+.accordion-content p,
+.accordion-content ul,
+.accordion-content ol {
+    margin-top: 15px; /* Espacio arriba del primer elemento */
+}
+
+.accordion-content p:last-child,
+.accordion-content ul:last-child,
+.accordion-content ol:last-child {
+    margin-bottom: 15px; /* Espacio abajo del último elemento */
+}
+
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding-top: 120px; /* Más espacio para el header si se envuelve */
+    }
+
+    header .container {
+        flex-direction: column; /* Apila el título y la navegación */
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        flex-direction: row; /* Mantener en fila pero permitir envolver */
+        justify-content: center;
+    }
+
+    header nav ul li {
+        margin: 5px 10px; /* Espacio entre elementos */
+    }
+
+     header nav ul li:first-child {
+        margin-left: 10px; /* Asegurar margen en el primer elemento envuelto */
+    }
+
+     header nav ul li a {
+         padding: 5px 10px; /* Añade un poco más de área clicable */
+     }
+
+
+    .hero .container {
+        flex-direction: column; /* Apila el contenido del hero */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .hero-image img {
+        max-width: 90%; /* Ajusta el tamaño de la imagen del hero */
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Permite tarjetas más pequeñas */
+    }
+
+     .content-section article {
+         padding: 20px;
+     }
+
+     .content-section h2 {
+         font-size: 1.8em;
+     }
+
+     .content-section h3 {
+         font-size: 1.4em;
+     }
+
+     .content-section h4 {
+         font-size: 1.2em;
+     }
+
+     .content-section p {
+         font-size: 1em;
+     }
+
+    .content-section ul,
+    .content-section ol {
+        margin-left: 20px; /* Menor indentación en móviles */
+    }
+
+    .content-section .icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .accordion-header {
+        padding: 15px; /* Reduce padding */
+    }
+
+     .accordion-header h4 {
+         font-size: 1.2em;
+     }
+
+     .accordion-content {
+         padding: 0 15px; /* Reduce padding */
+     }
+
+}
+
+@media (max-width: 480px) {
+     body {
+         padding-top: 150px; /* Más espacio para el header si se apila mucho */
+     }
+
+    header nav ul li {
+        margin: 5px; /* Espacio reducido entre enlaces envueltos */
+    }
+
+
+    .hero {
+        padding: 30px 0;
+    }
+
+    .hero-content h2 {
+        font-size: 1.6em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* Una sola columna de tarjetas */
+        gap: 15px;
+    }
+
+     .card {
+         padding: 15px;
+     }
+
+     .card img {
+         width: 50px;
+         height: 50px;
+         margin-bottom: 10px;
+     }
+
+     .card h4 {
+         font-size: 1.2em;
+     }
+
+     .card p {
+         font-size: 0.9em;
+     }
+
+     .content-section h2 {
+         font-size: 1.6em;
+     }
+
+     .content-section h3 {
+         font-size: 1.3em;
+     }
+
+    .content-section h4 {
+         font-size: 1.1em;
+     }
+
+     .content-section p {
+         font-size: 0.95em;
+     }
+
+     .image-container img {
+         max-width: 100%; /* Ocupa todo el ancho disponible */
+     }
+
+     .audio-example audio {
+         max-width: 100%; /* Ocupa todo el ancho disponible */
+     }
+
+    .accordion-header {
+        padding: 12px;
+    }
+     .accordion-header h4 {
+         font-size: 1.1em;
+     }
+    .accordion-content {
+        padding: 0 12px;
+    }
+
+    .next-section-link p {
+        font-size: 1em;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+}
+
